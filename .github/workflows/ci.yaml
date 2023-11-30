@@ -1,0 +1,42 @@
+name: Build And Push
+
+on:
+  push:
+    paths:
+      - 'backend/**'
+      - 'frontend/**'
+    branches: [main]
+
+jobs:
+  build-and-push-docker-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Build and push backend Docker image
+        uses: docker/build-push-action@v2
+        with:
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+          registry: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          path: ./backend
+          dockerfile: Dockerfile
+          repository: 'kubeconn1'
+          tags: 'linux-latest'
+          push: true
+
+      - name: Build and push frontend Docker image
+        uses: docker/build-push-action@v2
+        with:
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+          registry: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          path: ./frontend
+          dockerfile: Dockerfile
+          repository: 'kubeconn1'
+          tags: 'linux-latest'
+          push: true
