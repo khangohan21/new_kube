@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
           registry: ${{ secrets.REGISTRY_LOGIN_SERVER }}
           path: ./backend
-          dockerfile: Dockerfile
+          dockerfile: backend/Dockerfile  # Update to the correct path of your Dockerfile
           repository: 'kubeconn1'
-          tags: 'linux-latest'  # Add the desired tag here
+          tags: 'linux-latest'
           push: true
