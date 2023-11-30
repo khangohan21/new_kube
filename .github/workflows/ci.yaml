@@ -21,6 +21,6 @@ jobs:
           registry: ${{ secrets.REGISTRY_LOGIN_SERVER }}
           path: ./backend
           dockerfile: ./backend/Dockerfile  # Correct path to Dockerfile
-          repository: 'iptables-viz'
+          repository: 'repo.api'
           tags: 'linux-latest'
           push: true
