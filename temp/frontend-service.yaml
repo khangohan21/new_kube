@@ -1,0 +1,32 @@
+# templates/frontend-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: iptables-viz-frontend-svc
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: NodePort
+  selector:
+    app: iptables-viz-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30025
+# templates/frontend-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: iptables-viz-frontend-svc
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: NodePort
+  selector:
+    app: iptables-viz-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30025

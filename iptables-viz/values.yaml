@@ -1,0 +1,13 @@
+# values.yaml
+
+backend:
+  image:
+    repository: iptablesviz/iptables-viz-backend
+    tag: v1
+
+frontend:
+  image:
+    repository: iptablesviz/iptables-viz-frontend
+    tag: v1
+ingress:
+  enabled: false

@@ -1,0 +1,26 @@
+# templates/backend-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iptables-viz-backend
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: iptables-viz-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iptables-viz-backend
+  template:
+    metadata:
+      labels:
+        app: iptables-viz-backend
+    spec:
+      containers:
+        - name: iptables-viz-backend
+          image: {{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      serviceAccountName: iptables-viz-backend-sa

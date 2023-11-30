@@ -1,0 +1,4 @@
+apiVersion: v2
+name: iptables-viz-frontend
+description: A Helm chart for deploying the frontend application
+version: 0.1.0

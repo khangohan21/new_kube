@@ -1,0 +1,26 @@
+# templates/frontend-deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iptables-viz-frontend
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: iptables-viz-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iptables-viz-frontend
+  template:
+    metadata:
+      labels:
+        app: iptables-viz-frontend
+    spec:
+      containers:
+        - name: iptables-viz-frontend
+          image: {{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      serviceAccountName: iptables-viz-frontend-sa

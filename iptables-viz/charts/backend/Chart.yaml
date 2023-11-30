@@ -1,0 +1,4 @@
+apiVersion: v2
+name: iptables-viz-backend
+description: A Helm chart for deploying the backend application
+version: 0.1.0

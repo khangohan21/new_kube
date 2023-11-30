@@ -1,0 +1,14 @@
+# templates/backend-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: iptables-viz-backend-svc
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    app: iptables-viz-backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

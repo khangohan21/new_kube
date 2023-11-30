@@ -1,0 +1,6 @@
+# Chart.yaml
+
+apiVersion: v2
+name: iptables-viz
+description: A Helm chart for iptables-viz application
+version: 0.1.0
