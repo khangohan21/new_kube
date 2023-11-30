@@ -26,7 +26,6 @@ jobs:
           path: ./backend
           dockerfile: Dockerfile
           repository: 'kubeconn1'
-          tags: 'linux-latest'
           push: true
 
       - name: Build and push frontend Docker image
@@ -38,5 +37,4 @@ jobs:
           path: ./frontend
           dockerfile: Dockerfile
           repository: 'kubeconn1'
-          tags: 'linux-latest'
           push: true
