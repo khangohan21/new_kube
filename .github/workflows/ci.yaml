@@ -3,8 +3,8 @@ name: Build
 on:
   push:
     paths:
-      - 'backend/**'
-      - 'frontend/**'
+      - 'new_kube/backend/**'
+      - 'new_kube/frontend/**'
     branches: [main]
 
 jobs:
