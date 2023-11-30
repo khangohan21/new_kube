@@ -3,8 +3,7 @@ name: Build
 on:
   push:
     paths:
-      - 'backend/**'
-      - 'frontend/**'
+      - 'backend/Dockerfile'
     branches: [main]
 jobs:
   build-and-push-docker-image:
