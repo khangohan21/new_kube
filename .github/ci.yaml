@@ -5,7 +5,7 @@ on:
     branches: main
 
 jobs:
-  build-and-push-images:
+  build-and-push-backend-image:
     runs-on: ubuntu-latest
     steps:
       - name: Get code from the repository
@@ -26,6 +26,14 @@ jobs:
             linux-latest
           push: true
 
+  build-and-push-frontend-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code from the repository
+        uses: actions/checkout@v1
+        with:
+          ref: main
+
       - name: Build and push frontend Docker image
         uses: docker/build-push-action@v1
         with:
@@ -38,4 +46,3 @@ jobs:
           tags: |
             linux-latest
           push: true
-     
