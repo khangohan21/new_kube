@@ -2,8 +2,10 @@ name: Build
 
 on:
   push:
+    paths:
+      - 'backend/**'
+      - 'frontend/**'
     branches: [main]
-
 jobs:
   build-and-push-docker-image:
     runs-on: ubuntu-latest
