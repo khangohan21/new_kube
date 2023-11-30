@@ -52,21 +52,7 @@ jobs:
       - name: Set up AKS kubectl
         uses: azure/aks-set-context@v1
         with:
-          creds: |
-               {
-                "clientId": "${{ secrets.AZURE_SP_ID }}",
-                "clientSecret": "${{ secrets.AZURE_SP_SECRET }}",
-                "subscriptionId": "${{ secrets.AZURE_SUBSCRIPTION_ID }}",
-                "tenantId": "${{ secrets.AZURE_TENANT_ID }}",
-                "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-                "resourceManagerEndpointUrl": "https://management.azure.com",
-                "activeDirectoryGraphResourceId": "https://graph.windows.net",
-                "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-                "galleryEndpointUrl": "https://gallery.azure.com/",
-                "managementEndpointUrl": "https://management.core.windows.net"
-                     }
-          cluster-name: 'kawhed'
-          resource-group: 'test'
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy backend Helm chart
         run: |
