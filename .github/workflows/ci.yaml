@@ -53,7 +53,8 @@ jobs:
         uses: azure/aks-set-context@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+          cluster-name: 'azkube'
+          resource-group: 'test'
       - name: Deploy backend Helm chart
         run: |
           helm upgrade --install backend ./iptables-viz/backend/
