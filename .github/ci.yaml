@@ -1,9 +1,8 @@
-name: Build, Push, and Deploy to AKS
+name: Build and Push Docker Images
 
 on:
   push:
-    branches:
-      - main
+    branches: main
 
 jobs:
   build-and-push-images:
