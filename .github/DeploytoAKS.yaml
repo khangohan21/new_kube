@@ -56,10 +56,4 @@ jobs:
           cluster-name: 'kawhed'
           resource-group: 'test'
 
-      - name: Deploy backend Helm chart
-        run: |
-          helm upgrade --install backend ./iptables-viz/backend/
-
-      - name: Deploy frontend Helm chart
-        run: |
-          helm upgrade --install frontend ./iptables-viz/frontend/
+     
